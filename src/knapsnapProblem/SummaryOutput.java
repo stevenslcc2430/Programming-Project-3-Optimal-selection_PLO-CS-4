@@ -49,6 +49,6 @@ public class SummaryOutput {
             totalRating += experiments.get(i).getRating();
             System.out.print(experiments.get(i).getName());
         }
-        System.out.println("\nTotal Weight: " + totalWeight + " Total Rating: " + totalRating);
+        System.out.println("\nTotal Weight: " + totalWeight + " Total Rating: " + totalRating + "\n");
     } 
 }

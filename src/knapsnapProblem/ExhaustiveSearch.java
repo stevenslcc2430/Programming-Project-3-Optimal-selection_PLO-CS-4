@@ -1,7 +1,6 @@
 package knapsnapProblem;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /****************************************************
@@ -23,7 +22,6 @@ Sources:
 - Knapsack brute force with bit manipulation: FinalRoundAI
   https://www.finalroundai.com/articles/knapsack-problem
 
-@author Julian Cloward
 @author Steven Benjamin
 *****************************************************/
 

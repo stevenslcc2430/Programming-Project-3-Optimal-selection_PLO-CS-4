@@ -39,8 +39,8 @@ public class Experiment {
                 line = line.trim();
                 String[] contents = line.split(",");
                 experiments.add(new Experiment(contents[0], 
-                             Integer.parseInt(contents[1]),
-                             Integer.parseInt(contents[2])));
+                             Integer.parseInt(contents[2]),
+                             Integer.parseInt(contents[1])));
                 line = br.readLine();
             }
             br.close();
