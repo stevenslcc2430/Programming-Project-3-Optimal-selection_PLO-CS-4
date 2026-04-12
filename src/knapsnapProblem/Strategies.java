@@ -9,6 +9,10 @@ Julian Cloward, Steven Benjamin, Theodore Tran
 CS-2430-502 Spring 2026
 Programming Project 3
 
+This class includes different Knapsnack strategies to
+find the best scored subset from the given 
+experiment list including highest rating, highest 
+score, and lightest weight.
 @author Julian Cloward
 *****************************************************/
 
