@@ -16,7 +16,7 @@ force search, the DP solution, and prints a comparison.
 @Steven Benjamin
 *****************************************************/
 
-public class KnapsnackDemo {
+public class KnapsnakDemo {
     // path to the CSV with experiment data
     private static final String fileLocation = "src" + File.separator
         + "knapsnapProblem" + File.separator + "Experiments.csv";

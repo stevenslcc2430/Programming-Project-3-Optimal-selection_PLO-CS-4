@@ -22,24 +22,24 @@ public class knapsnapProblemTest {
 		// Setup data for strategy program runs.
 		String fileLocation = "src" + File.separator
 		        + "knapsnapProblem" + File.separator + "Experiments.csv";
-		List<Experiment> experiments = Experiment.experimentsFromCSV(fileLocation);
+		List<Experiment> experiments = Experiment.experimentsFromCSV(new File(fileLocation));
 		int maxWeight = 700;
 		
 		// Runs all strategies and stores their results to be compared.
 		ExhaustiveSearch es = new ExhaustiveSearch(experiments, maxWeight);
 		// Brute Force
-		List<Experiment> searchResult = es.getBestSubsets();
+		List<Experiment> searchResult = es.getBestSubsets().getFirst();
 		// 3 Greedy Strategies
 		List<Experiment> ratingResult = Strategies.highestRating(experiments, maxWeight);
 		List<Experiment> scoreResult = Strategies.highestScore(experiments, maxWeight);
 		List<Experiment> weightResult = Strategies.lightestWeight(experiments, maxWeight);
 		
 		// Compares the greedy strategies to the exhaustive search.
-		if (ratingResult.compareTo(searchResult)) System.out.println("Highest Rating matches Exhaustive Search."); 
+		if (ratingResult.containsAll(searchResult)) System.out.println("Highest Rating matches Exhaustive Search."); 
 			else System.out.println("Highest Rating and Exhaustive Search have different results.");
-		if (weightResult.compareTo(searchResult)) System.out.println("Lightest Weight matches Exhaustive Search."); 
+		if (weightResult.containsAll(searchResult)) System.out.println("Lightest Weight matches Exhaustive Search."); 
 			else System.out.println("Lightest Weight and Exhaustive Search have different results.");
-		if (scoreResult.compareTo(searchResult)) System.out.println("Highest Score matches Exhaustive Search."); 
+		if (scoreResult.containsAll(searchResult)) System.out.println("Highest Score matches Exhaustive Search."); 
 			else System.out.println("Highest Score and Exhaustive Search have different results.");
 		
 		// TODO Compares the greedy strategies with hard-coded data (with explanations for hard-coded data).
