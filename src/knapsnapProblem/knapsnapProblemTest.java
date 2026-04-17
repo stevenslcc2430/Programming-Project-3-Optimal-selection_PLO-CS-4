@@ -14,7 +14,7 @@ Tests the 3 Greedy Strategies and Exhaustive Search
 for correctness through sanity checks and comparing
 the results with hard-coded data.
 
-@author Theodore Tran
+@author Theodore Tran & Julian Cloward
 *****************************************************/
 public class knapsnapProblemTest {
 
@@ -35,34 +35,187 @@ public class knapsnapProblemTest {
 		List<Experiment> weightResult = Strategies.lightestWeight(experiments, maxWeight);
 		
 		// Compares the greedy strategies to the exhaustive search.
-		if (ratingResult.containsAll(searchResult)) System.out.println("Highest Rating matches Exhaustive Search."); 
+		// These tests are not necessary as all strategies will have different results anyway.
+		/* 
+		System.out.println("-----------------Greedy Strategies vs. Exhaustive Search-----------------");
+		if (ratingResult.containsAll(searchResult)) System.out.println(
+				"Highest Rating matches Exhaustive Search."); 
 			else System.out.println("Highest Rating and Exhaustive Search have different results.");
-		if (weightResult.containsAll(searchResult)) System.out.println("Lightest Weight matches Exhaustive Search."); 
+		if (weightResult.containsAll(searchResult)) System.out.println(
+				"Lightest Weight matches Exhaustive Search."); 
 			else System.out.println("Lightest Weight and Exhaustive Search have different results.");
-		if (scoreResult.containsAll(searchResult)) System.out.println("Highest Score matches Exhaustive Search."); 
+		if (scoreResult.containsAll(searchResult)) System.out.println(
+				"Highest Score matches Exhaustive Search."); 
 			else System.out.println("Highest Score and Exhaustive Search have different results.");
+		*/
 		
-		// TODO Compares the greedy strategies with hard-coded data (with explanations for hard-coded data).
-		// TODO Rating (Highest to Lowest): Solar Flares, Micrometeorites, Binary Stars.
-		/* Explanation: 
-		 * Weight: 264 + 170 + 203 = 637. 637 < 700. Adding 104 (Relativity) would result in 741 and 741 > 700.
+		
+		
+		// Compares the greedy strategies with hard-coded data (with explanations for hard-coded data).
+		System.out.println("\n-----------------Greedy Strategies vs. Hard-Coded Data-----------------");
+		/* Rating (Highest to Lowest)
+		 * Solar Flares, Micrometeorites, Binary Stars.
+		 * 
+		 * Hard-Coded Data Explanation: 
+		 * Weight: 264 + 170 + 203 = 637. 637 < 700. 
+		 * 		Adding 104 (Relativity) would result in 741 and 741 > 700.
 		 * Rating: 26 = 9 + 9 + 8.
 		 */
-		// TODO Weight (Lightest to Heaviest): Seed Viability, Yeast Fermentation, Cloud Patterns, Mice Tumors, 
-		// Microgravity Plant Growth, Cosmic Rays, Sun Spots, Relativity, Micrometeorites.
-		/* Explanation: 
-		 * Weight: 654 = 7 + 27 + 36 + 65 + 75 + 80 + 90 + 104 + 170. 654 < 700. Adding 188 (Solar Power) 
-		 * would result in 842 and 842 > 700.
+		List<Experiment> ratingData = new ArrayList<>();
+		ratingData.add(new Experiment("Solar Flares", 9, 264));
+		ratingData.add(new Experiment("Micrometeorites", 9, 170));
+		ratingData.add(new Experiment("Binary Stars", 8, 203));
+		if (ratingResult.containsAll(ratingData)) System.out.println(
+				"Highest Rating matches Hard-Coded Data."); 
+			else System.out.println("Highest Rating and Hard-Coded Data have different results.");
+		/* Weight (Lightest to Heaviest)
+		 * Seed Viability, Yeast Fermentation, Cloud Patterns, Mice Tumors, Microgravity Plant Growth,
+		 * Cosmic Rays, Sun Spots, Relativity, Micrometeorites.
+		 * 
+		 * Hard-Coded Data Explanation: 
+		 * Weight: 654 = 7 + 27 + 36 + 65 + 75 + 80 + 90 + 104 + 170. 654 < 700. 
+		 * 		Adding 188 (Solar Power) would result in 842 and 842 > 700.
 		 * Rating: 52 = 4 + 4 + 5 + 8 + 5 + 7 + 2 + 8 + 9.
 		 */
-		// TODO Score (Highest to Lowest): Sun Spots, Solar Power, Solar Flares, Binary Stars, Micrometeorites,
-		// Microgravity Plant Growth, Relativity.
-		/* Explanation: 
-		 * Weight: ~681.70833 = 90/2 + 188/6 + 264/9 + 203/8 + 170/9 + 75/5 + 104/8
-		 * = 90 + 188 + 29.33333 + 25.375 + 170 + 75 + 104. 681.70833 < 700. Adding 80 (Cosmic Rays) would 
-		 * result in 761.708 and 761.708 > 700.
-		 * Rating: 47 = 2 + 6 + 9 + 8 + 9 + 5 + 8.
+		List<Experiment> weightData = new ArrayList<>();
+		weightData.add(new Experiment("Seed Viability", 4, 7));
+		weightData.add(new Experiment("Yeast Fermentation", 4, 27));
+		weightData.add(new Experiment("Cloud Patterns", 5, 36));
+		weightData.add(new Experiment("Mice Tumors", 8, 65));
+		weightData.add(new Experiment("Microgravity Plant Growth", 5, 75));
+		weightData.add(new Experiment("Cosmic Rays", 4, 27));
+		weightData.add(new Experiment("Sun Spots", 2, 90));
+		weightData.add(new Experiment("Relativity", 8, 104));
+		weightData.add(new Experiment("Micrometeorites", 9, 170));
+		if (weightResult.containsAll(weightData)) System.out.println(
+				"Lightest Weight matches Hard-Coded Data."); 
+			else System.out.println("Lightest Weight and Hard-Coded Data have different results.");
+		/* Score (Highest to Lowest)
+		 * Sun Spots, Solar Power, Solar Flares
+		 * 
+		 * Hard-Coded Data Explanation: 
+		 * Weight: 542 = 90 + 188 + 264
+		 * 		Adding 203 (Binary Stars) would result in 745 and 745 > 700.
+		 * Rating: 17 = 2 + 6 + 9.
+		 * 
+		 * 		The current Strategies.highestScore() program stops when the next experiment would go 
+		 * 		over 700, but does *not* add any other experiments that could be added and where that 
+		 * 		experiment's weight would not go over 700. For example, 700 - 542 = 158. 
+		 * 		The next experiment with highest score and weight less than 158 is 
+		 * 		Microgravity Plant Growth (weight 75, rating 5), but this experiment is not added. 
+		 * 		If it were to be added, then weight is 542 + 75 = 617. Then, repeating the process, 
+		 * 		adding Cosmic Rays (weight 80, rating 7) amounts to 697. 
+		 * 		There are no other experiments with weight less than or equal to 3, so 697 is the 
+		 * 		total weight and the rating is 17 + 5 + 7 = 29. The new list would then be
+		 * 		Sun Spots, Solar Power, Solar Flares, Microgravity Plant Growth, Cosmic Rays
 		 */
+		List<Experiment> scoreData = new ArrayList<>();
+		scoreData.add(new Experiment("Sun Spots", 2, 90));
+		scoreData.add(new Experiment("Solar Power", 6, 188));
+		scoreData.add(new Experiment("Solar Flares", 9, 264));
+		//scoreData.add(new Experiment("Microgravity Plant Growth", 5, 75));
+		//scoreData.add(new Experiment("Cosmic Rays", 7, 80));
+		if (scoreResult.containsAll(scoreData)) System.out.println(
+				"Highest Score matches Hard-Coded Data."); 
+			else System.out.println("Highest Score and Hard-Coded Data have different results.");
+		
+		
+		
+		// Edge Cases: Tests empty list for program integrity.
+		System.out.println("\n-----------------Edge Cases: Empty List-----------------");
+		List<Experiment> emptyList = new ArrayList<>();
+		
+		System.out.println("Highest Rating: ");
+		System.out.println("1. Empty List & Regular Weight: ");
+		try {
+			Strategies.highestRating(emptyList, maxWeight);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		System.out.println("2. Regular List & 0 Weight: ");
+		try {
+			Strategies.highestRating(experiments, 0);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		System.out.println("3. Empty List & 0 Weight: ");
+		try {
+			Strategies.highestRating(emptyList, 0);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		
+		System.out.println("\nLightest Weight: ");
+		System.out.println("1. Empty List & Regular Weight: ");
+		try {
+			Strategies.lightestWeight(emptyList, maxWeight);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		System.out.println("2. Regular List & 0 Weight: ");
+		try {
+			Strategies.lightestWeight(experiments, 0);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		System.out.println("3. Empty List & 0 Weight: ");
+		try {
+			Strategies.lightestWeight(emptyList, 0);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		
+		System.out.println("\nHighest Score: ");
+		System.out.println("1. Empty List & Regular Weight: ");
+		try {
+			Strategies.highestScore(emptyList, maxWeight);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		System.out.println("2. Regular List & 0 Weight: ");
+		try {
+			Strategies.highestScore(experiments, 0);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		System.out.println("3. Empty List & 0 Weight: ");
+		try {
+			Strategies.highestScore(emptyList, 0);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		
+		System.out.println("\nHighest Score: ");
+		System.out.println("1. Empty List & Regular Weight: ");
+		try {
+			new ExhaustiveSearch(emptyList, maxWeight);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		System.out.println("2. Regular List & 0 Weight: ");
+		try {
+			new ExhaustiveSearch(experiments, 0);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
+		System.out.println("3. Empty List & 0 Weight: ");
+		try {
+			new ExhaustiveSearch(emptyList, 0);
+			System.out.print("Pass");
+		} catch (Exception e) {
+			System.out.print("Fail");
+		}
 	}
 
 }
