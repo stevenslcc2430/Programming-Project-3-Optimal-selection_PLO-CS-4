@@ -91,30 +91,26 @@ public class knapsnapProblemTest {
 				"Lightest Weight matches Hard-Coded Data."); 
 			else System.out.println("Lightest Weight and Hard-Coded Data have different results.");
 		/* Score (Highest to Lowest)
-		 * Sun Spots, Solar Power, Solar Flares
+		 * Sun Spots, Solar Power, Solar Flares, Microgravity Plant Growth, Cosmic Rays
 		 * 
 		 * Hard-Coded Data Explanation: 
-		 * Weight: 542 = 90 + 188 + 264
-		 * 		Adding 203 (Binary Stars) would result in 745 and 745 > 700.
-		 * Rating: 17 = 2 + 6 + 9.
-		 * 
-		 * 		The current Strategies.highestScore() program stops when the next experiment would go 
-		 * 		over 700, but does *not* add any other experiments that could be added and where that 
-		 * 		experiment's weight would not go over 700. For example, 700 - 542 = 158. 
-		 * 		The next experiment with highest score and weight less than 158 is 
-		 * 		Microgravity Plant Growth (weight 75, rating 5), but this experiment is not added. 
-		 * 		If it were to be added, then weight is 542 + 75 = 617. Then, repeating the process, 
-		 * 		adding Cosmic Rays (weight 80, rating 7) amounts to 697. 
-		 * 		There are no other experiments with weight less than or equal to 3, so 697 is the 
-		 * 		total weight and the rating is 17 + 5 + 7 = 29. The new list would then be
-		 * 		Sun Spots, Solar Power, Solar Flares, Microgravity Plant Growth, Cosmic Rays
+		 * Weight: 697 = 90 + 188 + 264 + 75 + 80
+		 * 		Adding the next highest-scoring experiment, 203 (Binary Stars), would result in 
+		 *		90 + 188 + 264 + 203 = 745 and 745 > 700. So, 90 + 188 + 264 = 542 and 
+		 *		700 - 542 = 158. The next highest-scoring experiment with a weight less than
+		 *		158 is Microgravity Plant Growth (weight 75, rating 5). Adding that experiment, 
+		 *		the weight then becomes 542 + 75 = 617. Then, repeating the process, adding 
+		 *		Cosmic Rays (weight 80, rating 7) results in the total weight 697. 
+		 *		There are no other experiments with weight less than or equal to 3,
+		 *		so the weight and rating are calculated based on those five experiments.
+		 * Rating: 29 = 2 + 6 + 9 + 5 + 7.
 		 */
 		List<Experiment> scoreData = new ArrayList<>();
 		scoreData.add(new Experiment("Sun Spots", 2, 90));
 		scoreData.add(new Experiment("Solar Power", 6, 188));
 		scoreData.add(new Experiment("Solar Flares", 9, 264));
-		//scoreData.add(new Experiment("Microgravity Plant Growth", 5, 75));
-		//scoreData.add(new Experiment("Cosmic Rays", 7, 80));
+		scoreData.add(new Experiment("Microgravity Plant Growth", 5, 75));
+		scoreData.add(new Experiment("Cosmic Rays", 7, 80));
 		if (scoreResult.containsAll(scoreData)) System.out.println(
 				"Highest Score matches Hard-Coded Data."); 
 			else System.out.println("Highest Score and Hard-Coded Data have different results.");
