@@ -15,6 +15,7 @@
     - `KnapsnackDemo.java` (runs the program)
     - `Strategies.java` (Part 1 — Three Greedy Strategies)
     - `SummaryOutput.java` (Part 3 — Displays and Summarizes Results Comparisons)
+    - `knapsnapProblemTest.java` (verifies program integrity)
     - Dynamic Programming Solution Pseudocode
   - `/docs` folder (contains design artifacts and other supporting text/data files)
   - `README.md` file (with build/run instructions)

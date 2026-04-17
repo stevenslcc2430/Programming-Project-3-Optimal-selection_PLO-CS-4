@@ -8,8 +8,8 @@ This document outlines team members, their assigned roles, responsibilities, and
 
 | Name             | GitHub Handle    | Role                | Primary Focus                                                     |
 | ---------------- | ---------------- | ------------------- | ----------------------------------------------------------------- |
-| Julian Cloward   |                  | Implementation Lead | Owns core implementation, integration, and main branch health     |
-| Theodore Tran    |                  | Verification Lead   | Owns test plan, edge cases, and verification evidence             |
+| Julian Cloward   | TehQuaken        | Implementation Lead | Owns core implementation, integration, and main branch health     |
+| Theodore Tran    | TheoLT839        | Verification Lead   | Owns test plan, edge cases, and verification evidence             |
 | Steven Benjamin  | stevenslcc2430   | Communications Lead | Owns report assembly, run instructions, and deliverable packaging |
 
 ---
