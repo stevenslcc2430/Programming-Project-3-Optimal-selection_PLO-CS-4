@@ -67,9 +67,9 @@ public class Experiment {
     }
     
     /**
-     * Return the raiting of the experiment.
+     * Return the rating of the experiment.
      * 
-     * @return raiting as an int.
+     * @return rating as an int.
      */
     public int getRating() {
         return rating;
