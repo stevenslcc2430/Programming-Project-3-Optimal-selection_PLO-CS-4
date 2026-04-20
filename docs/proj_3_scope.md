@@ -9,6 +9,7 @@
 ## Deliverables
 - [ ] Team Code Package (Repository/ZIP folder)
   - Source Code Files (`src/knapsnapProblem`)
+    - `DynamicProgramming.java` (Part 4 — Dynamic Programming)
     - `ExhaustiveSearch.java` (Part 2 — Brute Force Algorithm)
     - `Experiment.java` (converts input data to structured data that the algorithms can perform on)
     - `Experiments.csv` (contains input data)
@@ -16,7 +17,6 @@
     - `Strategies.java` (Part 1 — Three Greedy Strategies)
     - `SummaryOutput.java` (Part 3 — Displays and Summarizes Results Comparisons)
     - `knapsnapProblemTest.java` (verifies program integrity)
-    - Dynamic Programming Solution Pseudocode
   - `/docs` folder (contains design artifacts and other supporting text/data files)
   - `README.md` file (with build/run instructions)
   - `CONTRIBUTIONS.md` file (maps team members to responsibilities and evidence pointers)
