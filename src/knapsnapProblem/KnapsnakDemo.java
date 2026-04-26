@@ -24,6 +24,6 @@ public class KnapsnakDemo {
     private static final int maxWeight = 700;
 
     public static void main(String[] args) {
-        SummaryOutput output = new SummaryOutput(new File(fileLocation), maxWeight);
+        new SummaryOutput(new File(fileLocation), maxWeight);
     }
 }

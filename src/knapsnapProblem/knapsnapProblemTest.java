@@ -28,7 +28,7 @@ public class knapsnapProblemTest {
 		// Runs all strategies and stores their results to be compared.
 		ExhaustiveSearch es = new ExhaustiveSearch(experiments, maxWeight);
 		// Brute Force
-		List<Experiment> searchResult = es.getBestSubsets().getFirst();
+		es.getBestSubsets().getFirst();
 		// 3 Greedy Strategies
 		List<Experiment> ratingResult = Strategies.highestRating(experiments, maxWeight);
 		List<Experiment> scoreResult = Strategies.highestScore(experiments, maxWeight);
@@ -193,7 +193,7 @@ public class knapsnapProblemTest {
 		System.out.println("\nExhaustive Search: ");
 		System.out.println("1. Empty List & Regular Weight: ");
 		try {
-			List<Experiment> exhaustiveSearchTest1 = new ExhaustiveSearch(emptyList, maxWeight);
+			ExhaustiveSearch exhaustiveSearchTest1 = new ExhaustiveSearch(emptyList, maxWeight);
 			exhaustiveSearchTest1.getBestSubsets();
 			System.out.print("Pass");
 		} catch (Exception e) {
@@ -201,7 +201,7 @@ public class knapsnapProblemTest {
 		}
 		System.out.println("2. Regular List & 0 Weight: ");
 		try {
-			List<Experiment> exhaustiveSearchTest2 = new ExhaustiveSearch(experiments, 0);
+			ExhaustiveSearch exhaustiveSearchTest2 = new ExhaustiveSearch(experiments, 0);
 			exhaustiveSearchTest2.getBestSubsets();
 			System.out.print("Pass");
 		} catch (Exception e) {
@@ -209,7 +209,7 @@ public class knapsnapProblemTest {
 		}
 		System.out.println("3. Empty List & 0 Weight: ");
 		try {
-			List<Experiment> exhaustiveSearchTest3 = new ExhaustiveSearch(emptyList, 0);
+			ExhaustiveSearch exhaustiveSearchTest3 = new ExhaustiveSearch(emptyList, 0);
 			exhaustiveSearchTest3.getBestSubsets();
 			System.out.print("Pass");
 		} catch (Exception e) {
@@ -219,7 +219,7 @@ public class knapsnapProblemTest {
 		System.out.println("\nDynamic Programming: ");
 		System.out.println("1. Empty List & Regular Weight: ");
 		try {
-			List<Experiment> dynamicProgrammingTest1 = new DynamicProgramming(emptyList, maxWeight);
+			DynamicProgramming dynamicProgrammingTest1 = new DynamicProgramming(emptyList, maxWeight);
 			dynamicProgrammingTest1.solve();
 			System.out.print("Pass");
 		} catch (Exception e) {
@@ -227,7 +227,7 @@ public class knapsnapProblemTest {
 		}
 		System.out.println("2. Regular List & 0 Weight: ");
 		try {
-			List<Experiment> dynamicProgrammingTest2 = new DynamicProgramming(experiments, 0);
+			DynamicProgramming dynamicProgrammingTest2 = new DynamicProgramming(experiments, 0);
 			dynamicProgrammingTest2.solve();
 			System.out.print("Pass");
 		} catch (Exception e) {
@@ -235,7 +235,7 @@ public class knapsnapProblemTest {
 		}
 		System.out.println("3. Empty List & 0 Weight: ");
 		try {
-			List<Experiment> dynamicProgrammingTest3 = new DynamicProgramming(emptyList, 0);
+			DynamicProgramming dynamicProgrammingTest3 = new DynamicProgramming(emptyList, 0);
 			dynamicProgrammingTest3.solve();
 			System.out.print("Pass");
 		} catch (Exception e) {
