@@ -1,6 +1,6 @@
 # Project Plan
 
-The project planning page is here.
+
 [The project planning page is here.](https://github.com/users/stevenslcc2430/projects/4/views/2)
 
 ---
