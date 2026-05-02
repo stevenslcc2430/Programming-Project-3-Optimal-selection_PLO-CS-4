@@ -1,6 +1,6 @@
-# Task Index
+# Project Plan
 
-Maps source files and sections to GitHub Issues at:
+The project planning page is here:
 https://github.com/stevenslcc2430/Programming-Project-3-Optimal-selection_PLO-CS-4/issues
 
 ---
@@ -45,9 +45,9 @@ https://github.com/stevenslcc2430/Programming-Project-3-Optimal-selection_PLO-CS
 - `src/knapsnapProblem/knapsnapProblemTest.java` : cross-check DP matches brute force
 - Bug found: Strategies used `break` instead of skip. Fixed and retested.
 
-## Tasks 8 and 9: Report and Screencast (documentation only, no code)
+## Tasks 8 and 9: Report and Screencast
 
 | Task | Deliverable |
 |------|-------------|
-| 8. Team Report Development | Separate report file (PDF or DOCX, not in zip) |
+| 8. Team Report Development | Separate report file  |
 | 9. Screencast and Packaging | Separate video file or link |
