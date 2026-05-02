@@ -1,7 +1,7 @@
 # Project Plan
 
 The project planning page is here:
-https://github.com/stevenslcc2430/Programming-Project-3-Optimal-selection_PLO-CS-4/issues
+[https://github.com/stevenslcc2430/Programming-Project-3-Optimal-selection_PLO-CS-4/issues](https://github.com/users/stevenslcc2430/projects/4/views/2)
 
 ---
 
